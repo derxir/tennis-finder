@@ -1,4 +1,4 @@
-package com.derxir.Schedule;
+package com.derxir.schedule;
 
 import com.derxir.aop.LoggerManage;
 import org.apache.log4j.Logger;
