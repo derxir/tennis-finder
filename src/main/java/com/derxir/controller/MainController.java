@@ -1,8 +1,10 @@
 package com.derxir.controller;
 
+import com.derxir.domain.CaptureContext;
 import com.derxir.service.CaptureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -14,9 +16,10 @@ public class MainController {
     @Autowired
     CaptureService captureService;
 
-    @RequestMapping("/")
-    public String index() {
-        return "Greetings from Spring Boot!";
+    @RequestMapping(value = "/",method = RequestMethod.GET)
+    public CaptureContext loadCapturedSchedule() {
+        captureService.initCapture();
+        return captureService.loadCourtStatusInfo();
     }
 
     @RequestMapping("/api/capture/{id}")
