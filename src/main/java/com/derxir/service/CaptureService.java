@@ -1,15 +1,17 @@
 package com.derxir.service;
 
+import com.derxir.domain.CaptureContext;
 import org.springframework.stereotype.Service;
 
-import java.net.URL;
+import java.util.List;
 
 /**
  * Created by justin on 4/4/17.
  */
 @Service
-public interface CaptureService {
+public interface CaptureService extends IService {
 
-    void initCapture(URL url);
+    void initCapture();
 
+    CaptureContext loadCourtStatusInfo();
 }
